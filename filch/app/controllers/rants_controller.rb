@@ -25,7 +25,6 @@ class RantsController < ApplicationController
   # POST /rants.json
   def create
     @rant = Rant.new(rant_params)
-    @rant.user_id = @current_user.id
     @rant.like = 0
     @rant.unlike = 0
     @rant.status = 'new'

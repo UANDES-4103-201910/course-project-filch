@@ -10,7 +10,11 @@
       </ul>
     </div>
   <% end %>
-  <h1><%=user_session%></h1>
+
+  <div class="field">
+    <%= form.text_field :user_id, type:"hidden", value: current_user.name %>
+  </div>
+
   <div class="field">
     <%= form.label :geofence_id %>
     <%= form.text_field :geofence_id %>
