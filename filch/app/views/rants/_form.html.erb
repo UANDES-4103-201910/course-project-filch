@@ -10,12 +10,7 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
+  <h1><%=user_session%></h1>
   <div class="field">
     <%= form.label :geofence_id %>
     <%= form.text_field :geofence_id %>
@@ -35,26 +30,7 @@
     <%= form.label :image%>
     <%= form.file_field :image %>
   </div>
-  <div class="field">
-    <%= form.label :like %>
-    <%= form.number_field :like %>
-  </div>
-
-  <div class="field">
-    <%= form.label :unlike %>
-    <%= form.number_field :unlike %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :inapropiate %>
-    <%= form.number_field :inapropiate %>
-  </div>
-
+  
   <div class="field">
     <%= form.label :visibility %>
     <%= form.check_box :visibility %>
