@@ -39,13 +39,17 @@ for po in rants do
 	po.save!
 end
 #comment user_id:,rant_id:,description:,like:,unlike:,inapropiate:,
-comment = Comment.create!(rant_id: rant2.id, user_id: user2.id, description: 'I am agree with you my friend. The system is not efficent', like: 1, unlike: 0)
- 
-comments = [ comment ]
 
-for c in comments do 
-	c.save!
-end
+
+#comment = Comment.new(rant_id: rant2.id, user_id: user2.id, description: 'I am agree with you my friend. The system is not efficent', like: 1, unlike: 0)
+ 
+
+
+#comments = [ comment ]
+
+#for c in comments do 
+#	c.save!
+#end
 
 blacklist = Blacklist.new() #empty for now
 

@@ -12,13 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= form.text_field :user_id, type:"hidden", value: current_user.name %>
+    <%= form.text_field :user_id, value:current_user.id, type:"hidden" %>
   </div>
 
-  <div class="field">
-    <%= form.label :geofence_id %>
-    <%= form.text_field :geofence_id %>
-  </div>
 
   <div class="field">
     <%= form.label :title %>
