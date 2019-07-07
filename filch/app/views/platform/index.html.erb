@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-lg-4 col-md-4 col-sm-4">
+    <div class="jumbotron">
+      <button id="new post" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'New Post', new_post_path%></button><br>
+      <button id="Search" type="submit" class="btn btn-default btn-lg" role="button">Search</button><br>
+      <button id="Edit Profile" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Edit Profile'%></button><br>
+      <button id="Blacklist" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Blacklist' , blacklists_path %></button><br>
+      <button id="Dumpster" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Dumpster' , dumpsters_path %></button><br>
+        <button id="Blacklist" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Blacklist' , blacklists_path %></button><br>
+        <button id="Dumpster" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Dumpster' , dumpsters_path %></button><br>
+          <button id="admins" type="submit" class="btn btn-default btn-lg" role="button"></button><br>
+          <button id="geofences" type="submit" class="btn btn-default btn-lg" role="button"></button><br>
+          <button id="" type="submit" class="btn btn-default btn-lg" role="button"></button><br>
+          <button id="show post" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to "show post", posts_show_path%></button><br>
+          <button id="index post" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to "index post", posts_index_path%></button><br>
+    </div>
+  </div>
+  <div class="col-lg-8 col-md-8 col-sm-8">
+    <div class="jumbotron">
+      <div class="panel-body">
+              <h5>Your daily Rants from the Filchers:</h5>
+            <div class="table-responsive">
+              <table class="table table-dark table-hover table-bordered">
+                <%= @posts.each do |post|%>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="jumbotron">
+                          < post.user.>
+                        </div>
+                      </div>
+                      <div class="col-lg-8 col-md-8 col-sm-8">
+                        <div class="jumbotron">
+                          <h1><%= link_to post.title,  post%></h1>
+                          <h2><%= post.user.name%></h2>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="jumbotron">
+                      <%= post.description%>
+                    </div>
+                    <div class="btn-group btn-group-md">
+                      <button id="Like" type="submit" class="btn btn-default btn-lg" role="button">Like <%= post.like%></button>
+                      <button id="Dislike" type="submit" class="btn btn-default btn-lg" role="button">Dislike <%= post.unlike%></button>
+                    </div>
+                  </div>
+                <% end %>
+              </table>
+            </div>
+        </div>
+    </div>
