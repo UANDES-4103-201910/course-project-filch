@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  rant: one
+  description: MyText
+  like: 1
+  unlike: 1
+  inapropiate: 1
+
+two:
+  user: two
+  rant: two
+  description: MyText
+  like: 1
+  unlike: 1
+  inapropiate: 1

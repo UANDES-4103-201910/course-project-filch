@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Geofence</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Like</th>
+      <th>Unlike</th>
+      <th>Status</th>
+      <th>Inapropiate</th>
+      <th>Visibility</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rants.each do |rant| %>
+      <tr>
+        <td><%= rant.user %></td>
+        <td><%= rant.geofence %></td>
+        <td><%= rant.title %></td>
+        <td><%= rant.description %></td>
+        <td><%= rant.like %></td>
+        <td><%= rant.unlike %></td>
+        <td><%= rant.status %></td>
+        <td><%= rant.inapropiate %></td>
+        <td><%= rant.visibility %></td>
+        <td><%= link_to 'Show', rant %></td>
+        <td><%= link_to 'Edit', edit_rant_path(rant) %></td>
+        <td><%= link_to 'Destroy', rant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rant', new_rant_path %>

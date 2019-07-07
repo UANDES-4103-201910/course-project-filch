@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  geofence: one
+  title: MyString
+  description: MyText
+  like: 1
+  unlike: 1
+  status: MyString
+  inapropiate: 1
+  visibility: false
+
+two:
+  user: two
+  geofence: two
+  title: MyString
+  description: MyText
+  like: 1
+  unlike: 1
+  status: MyString
+  inapropiate: 1
+  visibility: false

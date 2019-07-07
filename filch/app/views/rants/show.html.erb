@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @rant.user %>
+</p>
+
+<p>
+  <strong>Geofence:</strong>
+  <%= @rant.geofence %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @rant.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @rant.description %>
+</p>
+
+<p>
+  <strong>Like:</strong>
+  <%= @rant.like %>
+</p>
+
+<p>
+  <strong>Unlike:</strong>
+  <%= @rant.unlike %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @rant.status %>
+</p>
+
+<p>
+  <strong>Inapropiate:</strong>
+  <%= @rant.inapropiate %>
+</p>
+
+<p>
+  <strong>Visibility:</strong>
+  <%= @rant.visibility %>
+</p>
+
+<%= link_to 'Edit', edit_rant_path(@rant) %> |
+<%= link_to 'Back', rants_path %>

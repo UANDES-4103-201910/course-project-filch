@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  lastname: MyString
+  geofence: one
+  role: MyString
+  uid: MyString
+  provider: MyString
+  sex: MyString
+  bigraphy: MyText
+
+two:
+  name: MyString
+  lastname: MyString
+  geofence: two
+  role: MyString
+  uid: MyString
+  provider: MyString
+  sex: MyString
+  bigraphy: MyText

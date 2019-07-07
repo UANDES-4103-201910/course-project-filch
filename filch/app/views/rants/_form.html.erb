@@ -1,0 +1,62 @@
+<%= form_with(model: rant, local: true) do |form| %>
+  <% if rant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rant.errors.count, "error") %> prohibited this rant from being saved:</h2>
+
+      <ul>
+      <% rant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :geofence_id %>
+    <%= form.text_field :geofence_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :like %>
+    <%= form.number_field :like %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unlike %>
+    <%= form.number_field :unlike %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inapropiate %>
+    <%= form.number_field :inapropiate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :visibility %>
+    <%= form.check_box :visibility %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
