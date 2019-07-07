@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'platform/index'
 
-  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks',
-        sessions: 'users/sessions'
+  devise_for :users, controllers: {omniauth_callbacks: 'user/omniauth_callbacks', sessions: 'user/sessions'
       }
 
   resources :blacklists
