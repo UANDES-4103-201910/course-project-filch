@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,:recoverable,:rememberable, :validatable, :trackable,:omniauthable, omniauth_providers: [:google_oauth2]
-
+  has_one_attached :image
 
   has_one :geofence
   belongs_to :blacklist, optional: true

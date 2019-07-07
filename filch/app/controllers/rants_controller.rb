@@ -69,6 +69,6 @@ class RantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rant_params
-      params.require(:rant).permit(:user_id, :geofence_id, :title, :description, :like, :unlike, :status, :inapropiate, :visibility)
+      params.require(:rant).permit(:user_id, :geofence_id, :title, :image, :description, :like, :unlike, :status, :inapropiate, :visibility)
     end
 end

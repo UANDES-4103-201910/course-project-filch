@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'platform/index'
 
-  devise_for :users, controllers: {
+  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks',
         sessions: 'users/sessions'
       }
 
@@ -16,3 +16,4 @@ Rails.application.routes.draw do
   root to: 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+  

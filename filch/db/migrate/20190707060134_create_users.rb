@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :uid
       t.string :provider
       t.string :sex
-      t.text :bigraphy
+      t.text :biography
 
       t.timestamps
     end
