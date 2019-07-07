@@ -59,7 +59,7 @@
                     <div class="btn-group btn-group-lg">
                         <button id="Home" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to('Home', :root) %></button>
                         <% if user_signed_in? %>
-                        <button id="Edit" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to current_user.name, user_profile_path, class: "button is-info" %> </button>
+                        <button id="Edit" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to current_user.name, edit_user_path(current_user.id), class: "button is-info" %> </button>
                             <button id="Log out" type="submit" class="btn btn-default btn-lg" role="button"> <%=link_to 'Log out', destroy_user_session_path, method: :delete %></button>
                         <% else %> 
                             <button id="Sign in" type="submit" class="btn btn-default btn-lg" role="button"> <%= link_to 'Sign In', new_user_registration_path %></button> 
