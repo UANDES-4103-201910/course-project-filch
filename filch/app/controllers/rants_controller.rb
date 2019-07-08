@@ -31,7 +31,7 @@ class RantsController < ApplicationController
     @rant.inapropiate = 'no' 
     respond_to do |format|
       if @rant.save
-        format.html { redirect_to @rant, notice: 'Rant was successfully created.' }
+        format.html { redirect_to @root, notice: 'Rant was successfully created.' }
         format.json { render :show, status: :created, location: @rant }
       else
         format.html { render :new }
@@ -72,6 +72,6 @@ class RantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rant_params
-      params.require(:rant).permit(:user_id, :geofence_id, :title, images: [] , :description, :like, :unlike, :status, :inapropiate, :visibility)
+      params.require(:rant).permit(:user_id, :geofence_id, :title, :image , :description, :like, :unlike, :status, :inapropiate, :visibility)
     end
 end

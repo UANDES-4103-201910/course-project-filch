@@ -1,33 +1,34 @@
-<div class="jumbotron"><center>
-  <p>
-    <%= @user.name %>
-  </p>
 
-  <p>
-    <%= @user.lastname %>
-  </p>
-  <"%= if @user.image.attachment? %">
-    <"%= image_tag @user.image.variant(resize: '50x50') %">
-  <"% end %">
-  <p>
-    <strong>Role:</strong>
-    <%= @user.role %>
-  </p>
+  <div class="row">
+    <% @rants=Rant.where(user_id:current_user.id) %>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <div class="jumbotron">
+        <"%= image_tag @user.image, size: '120x140' %"">
+      </div>      
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="jumbotron">
+        <div class="float-right"> <div id="edit" type="submit" class="btn btn-default " role="button"><%= link_to 'Edit', edit_user_path(@user)%></div> </div>
+        <h1>
+          <%= @user.name %>
+          <%= @user.lastname %>
+        </h1>
+        <h3><%= @user.role %></h3>
+          <strong>Biography:</strong><br>
+          <%= @user.biography %>
+      </div> 
+      <div class="float-right"><div id="back" type="submit" class="btn btn-default " role="button"><%= link_to 'Back', root_path %></div></div>
+      <div class="jumbotron">
+        <h1><%= @user.name %>'s Rants</h1>
+        <%= @rants.each do |rant|%>
 
-
-
-  <p>
-    <strong>Sex:</strong>
-    <%= @user.sex %>
-  </p>
-
-  <p>
-    <strong>Biography:</strong>
-    <%= @user.biography %>
-  </p>
-  <div class="btn-group btn-group-lg">
-    <div id="edit" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Edit', edit_user_path(@user)%></div>
-    <div id="back" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Back', root_path %></div>
+        <% end %>
+      </div>
+    </div>
   </div>
+    
+
+
+  <center>
 </center></div>
 
