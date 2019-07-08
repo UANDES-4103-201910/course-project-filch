@@ -5,4 +5,8 @@ class PlatformController < ApplicationController
   def terms
   	
   end
+
+  def search
+  	
+  end
 end

@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   
   def is_admin
-    if user.role == "admin" || user.role == "Admin" 
+    if role == "admin" || role == "Admin" 
       return true
     else
       return false
@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def is_super_admin
-    if user.role == "superadmin" || user.role == "superAdmin" ||user.role == "Superadmin" || user.role == "SuperAdmin" 
+    if  role == "superadmin" ||  role == "superAdmin" || role == "Superadmin" ||  role == "SuperAdmin" 
       return true
     else
       return false

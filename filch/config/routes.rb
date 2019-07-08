@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'platform/index'
   get 'terms', to: 'home#terms'
+  get 'search', to: 'platform#search'
 
   devise_for :users, controllers: {omniauth_callbacks: 'user/omniauth_callbacks', sessions: 'user/sessions'
       }
