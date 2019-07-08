@@ -1,40 +1,50 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
+  <div class="btn-group btn-group-sm">
+    <button id="new" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'New User', new_user_path %></button><br>
+    <button id="back" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Back', root_path %></button><br>
+  </div><br>
+<div class="row">
+  
+  <% @users.each do |user| %>
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="jumbotron"><center>
+        <h1><%= user.name %><%= user.lastname %></h1>
+        <h3><%= user.role %></h3>
+        <strong>Biography:</strong><br>
+        <p><%= user.biography %> </p><br>
+        <strong>sex:</strong><br>
+        <h3><%= user.sex %></h3><br>
+        <P><%= user.provider %></P>
+        <strong>Last Acces:</strong><br>
+        <h3><%= user.last_sign_in_at %></h3>
+      </center></div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+      <div class="jumbotron"><center>
+        <div class="btn-group btn-group-sm">
+          <button id="Show" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Show', user %></button><br>
+          <button id="Edit" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Edit', edit_user_path(user.id) %></button><br>
+          <button id="Destroy" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }%></button>
+          <%= form_for :blacklists, :url => { :controller => "blacklists", :action => "create"} do |blacklists|%>
+            <%= blacklists.number_field :user_id, value:user.id, type:"hidden"%>            
+            <%= blacklists.label :flagged%>            
+            <%= blacklists.number_field :flagged%>
+            <%= blacklists.submit value:"send to blacklist" , class:"btn btn-default"%></td>
+          <% end %>
+          <br>          
+        </div>
+      </center></div>
+    </div>
+      
+        
+          
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Lastname</th>
-      <th>Geofence</th>
-      <th>Role</th>
-      <th>Uid</th>
-      <th>Provider</th>
-      <th>Sex</th>
-      <th>Bigraphy</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.lastname %></td>
-        <td><%= user.role %></td>
-        <td><%= user.uid %></td>
-        <td><%= user.provider %></td>
-        <td><%= user.sex %></td>
-        <td><%= user.biography %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New User', new_user_path %>
+</div>
+<div class="btn-group btn-group-sm">
+    <button id="new" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'New User', new_user_path %></button><br>
+    <button id="bach" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Bach', root_path %></button><br>
+  </div>

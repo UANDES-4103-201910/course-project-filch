@@ -6,15 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #Geofence name:,address:,latitude:,longitud:
-stgo = Geofence.create!(name: "Buckingham Palace", address:"so", latitude: 51.501564,longitud: -0.141944)
-valpo = Geofence.create!(name: "Westminster Abbey", address:"so", latitude: 51.499581, longitud: -0.127309)
-ranc = Geofence.create!(name: "Big Ben", address:"so", latitude: 51.500792, longitud: -0.124613)
+stgo = Geofence.new(name: "Buckingham Palace", address:"so", latitud: 51.501564,longitud: -0.141944)
+#valpo = Geofence.new(name: "Westminster Abbey", address:"so", latitud: 51.499581, longitud: -0.127309)
+#ranc = Geofence.new(name: "Big Ben", address:"so", latitud: 51.500792, longitud: -0.124613)
 
-geofences = [stgo , valpo , ranc]
+#geofences = [stgo , valpo , ranc]
 
-for g in geofences do
-	g.save!
-end
+#for g in geofences do
+#	g.save!
+#end
 #User  name:,lastname:,geofence_id:,role:,uid:,provider:,sex:,biography:,created_at:,updated_at:,email:
 
 user1 = User.new(  name: 'Alberto ' , lastname:'Altermatt' , email: 'ajaltermatt@miuandes.cl', password: '123123', biography:'something here', role: 'SuperAdmin', geofence_id: stgo.id, sex: 'Male',updated_at:Time.now)

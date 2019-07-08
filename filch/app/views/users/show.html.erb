@@ -3,7 +3,9 @@
     <% @rants=Rant.where(user_id:current_user.id) %>
     <div class="col-lg-4 col-md-4 col-sm-4">
       <div class="jumbotron">
-        <"%= image_tag @user.image, size: '120x140' %"">
+        <"%= if @user.image.attached? %">
+          <"%= image_tag @user.image, size: '120x140' %">
+        <"% end %">
       </div>      
     </div>
     <div class="col-lg-8 col-md-8 col-sm-8">
@@ -20,9 +22,62 @@
       <div class="float-right"><div id="back" type="submit" class="btn btn-default " role="button"><%= link_to 'Back', root_path %></div></div>
       <div class="jumbotron">
         <h1><%= @user.name %>'s Rants</h1>
-        <%= @rants.each do |rant|%>
+        <div class="table-responsive">
+              <%= @rants.each do |rant|%>
+                <%= @nom = User.where( user_id: rant.user_id) %>
 
-        <% end %>
+                <div class="container">
+                  
+                  
+                  <h5>ranted at: <%= rant.created_at %></h5>
+                  <h2><%= rant.title %></h2>
+                  <div class="jumbotron">
+                    <p><%= rant.description %></p>
+                  </div>
+                  <h5>Likes:<%= rant.like %> | Unlikes:<%= rant.unlike %></h5>
+                  <div class="btn-group btn-group-lg">                                  
+                    <button id="like" type="submit" class="btn btn-default btn-lg" role="button">Like</button><br>
+                    <button id="unlike" type="submit" class="btn btn-default btn-lg" role="button">Unlike</button><br>
+                  </div><br>
+                  <"%= form_for :rant, :url => { :controller => "rants", :action => "save" } do |rant_like_form|%">
+                    <"%= rant_like_form.number_field :like,  type:"hidden" %">
+                    <"%= rant_like_form.submit value:"save", class:"btn btn-default"%">
+                  <"% end %">
+                  <"%= form_for :rant, :url => { :controller => "rants", :action => "save" } do |rant_unlike_form|%">
+                    <"%= rant_unlike_form.number_field :unlike,  type:"hidden" %">
+                    <"%= rant_unlike_form.submit value:"save", class:"btn btn-default"%">
+                  <"% end %">
+                  <div class="float-right">
+                    <"%= if rant.user_id == current_user.id  %">
+                      <p>edit button</p>                      
+                    <"% end %">
+                  </div>
+
+                  <% @comments=Comment.where(rant_id:rant.id) %>
+                  <div class="jumbotron">
+                    <h5>Comments by other filchers</h5>
+                    <%= @comments.each do |comment| %>
+                      <div class="jumbotron">
+                        
+                      </div>
+                    <% end %>
+                  
+                    <h5>New Comment</h5>
+                    <%= form_for :comment, :url => { :controller => "comments", :action => "create"} do |comment_form|%>
+                      <%= comment_form.text_field :user_id, value:current_user.id, type:"hidden" %>
+                      <%= comment_form.text_field :rant_id, value:current_user.id, type:"hidden" %>
+                      <%= comment_form.text_field :title, class:"form-control", placeholder:"Enter title", required: true %>
+                      <%= comment_form.text_area :description, class:"form-control", placeholder:"Enter Description...", required: true %>
+                      <%= comment_form.file_field :images %><br>
+                      <%= comment_form.submit value:"Create" , class:"btn btn-default" %>
+                    <% end %>
+                  </div>
+                  
+                </div>
+
+                
+              <% end %>
+            </div>
       </div>
     </div>
   </div>

@@ -69,6 +69,6 @@ class GeofencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def geofence_params
-      params.require(:geofence).permit(:name, :address, :latitude, :longitud)
+      params.require(:geofence).permit(:name, :address, :latitud, :longitud)
     end
 end

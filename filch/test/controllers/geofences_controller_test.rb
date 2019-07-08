@@ -17,7 +17,7 @@ class GeofencesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create geofence" do
     assert_difference('Geofence.count') do
-      post geofences_url, params: { geofence: { address: @geofence.address, latitude: @geofence.latitude, longitud: @geofence.longitud, name: @geofence.name } }
+      post geofences_url, params: { geofence: { address: @geofence.address, latitud: @geofence.latitud, longitud: @geofence.longitud, name: @geofence.name } }
     end
 
     assert_redirected_to geofence_url(Geofence.last)
@@ -34,7 +34,7 @@ class GeofencesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update geofence" do
-    patch geofence_url(@geofence), params: { geofence: { address: @geofence.address, latitude: @geofence.latitude, longitud: @geofence.longitud, name: @geofence.name } }
+    patch geofence_url(@geofence), params: { geofence: { address: @geofence.address, latitud: @geofence.latitud, longitud: @geofence.longitud, name: @geofence.name } }
     assert_redirected_to geofence_url(@geofence)
   end
 

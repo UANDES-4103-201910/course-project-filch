@@ -1,42 +1,72 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Rants</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Geofence</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Like</th>
-      <th>Unlike</th>
-      <th>Status</th>
-      <th>Inapropiate</th>
-      <th>Visibility</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="jumbotron"><center>
+  <div class="btn-group btn-group-sm">
+    <div id="back" type="submit" class="btn btn-default " role="button"><%= link_to 'Back', root_path %></div>
+    <div id="New Rant" type="submit" class="btn btn-default " role="button"><%= link_to 'New Rant', new_rant_path %></div>
+  </div><br>
+  <%= @rants.each do |rant|%>
+                <%= @nom = User.where( user_id: rant.user_id) %>
 
-  <tbody>
-    <% @rants.each do |rant| %>
-      <tr>
-        <td><%= rant.user %></td>
-        <td><%= rant.title %></td>
-        <td><%= rant.description %></td>
-        <td><%= rant.like %></td>
-        <td><%= rant.unlike %></td>
-        <td><%= rant.status %></td>
-        <td><%= rant.inapropiate %></td>
-        <td><%= rant.visibility %></td>
-        <td><%= link_to 'Show', rant %></td>
-        <td><%= link_to 'Edit', edit_rant_path(rant) %></td>
-        <td><%= link_to 'Destroy', rant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+                <div class="container">
+                  <div class="btn-group btn-group-sm">
+                    <button id="Show" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Show', rant %></button><br>
+                    <button id="Edit" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Edit', edit_rant_path(rant) %></button><br>
+                    <button id="Destroy" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Destroy', rant, method: :delete, data: { confirm: 'Are you sure?' } %></button><br>
+                  </div>
+                  
+                  
+                  <h5>ranted at: <%= rant.created_at %></h5>
+                  <div class="float-right"><h5>by: <%= link_to @nom.name , user_path(rant.user_id) %></h5></div><br>
+                  <h2><%= rant.title %></h2>
+                  <div class="jumbotron">
+                    <p><%= rant.description %></p>
+                  </div>
+                  <h5>Likes:<%= rant.like %> | Unlikes:<%= rant.unlike %></h5>
+                  <div class="btn-group btn-group-lg">                                  
+                    <button id="like" type="submit" class="btn btn-default btn-lg" role="button">Like</button><br>
+                    <button id="unlike" type="submit" class="btn btn-default btn-lg" role="button">Unlike</button><br>
+                  </div><br>
+                  <"%= form_for :rant, :url => { :controller => "rants", :action => "save" } do |rant_like_form|%">
+                    <"%= rant_like_form.number_field :like,  type:"hidden" %">
+                    <"%= rant_like_form.submit value:"save", class:"btn btn-default"%">
+                  <"% end %">
+                  <"%= form_for :rant, :url => { :controller => "rants", :action => "save" } do |rant_unlike_form|%">
+                    <"%= rant_unlike_form.number_field :unlike,  type:"hidden" %">
+                    <"%= rant_unlike_form.submit value:"save", class:"btn btn-default"%">
+                  <"% end %">
+                  <div class="float-right">
+                    <"%= if rant.user_id == current_user.id  %">
+                      <p>edit button</p>                      
+                    <"% end %">
+                  </div>
 
-<br>
+                  <% @comments=Comment.where(rant_id:rant.id) %>
+                  <div class="jumbotron">
+                    <h5>Comments by other filchers</h5>
+                    <%= @comments.each do |comment| %>
+                      <div class="jumbotron">
+                        
+                      </div>
+                    <% end %>
+                  
+                    <h5>New Comment</h5>
+                    <%= form_for :comment, :url => { :controller => "comments", :action => "create"} do |comment_form|%>
+                      <%= comment_form.text_field :user_id, value:current_user.id, type:"hidden" %>
+                      <%= comment_form.text_field :rant_id, value:current_user.id, type:"hidden" %>
+                      <%= comment_form.text_field :title, class:"form-control", placeholder:"Enter title", required: true %>
+                      <%= comment_form.text_area :description, class:"form-control", placeholder:"Enter Description...", required: true %>
+                      <%= comment_form.file_field :images %><br>
+                      <%= comment_form.submit value:"Create" , class:"btn btn-default" %>
+                    <% end %>
+                  </div>
+                  
+                </div>
 
-<%= link_to 'New Rant', new_rant_path %>
+                
+              <% end %>
+              <div class="btn-group btn-group-sm">
+                <div id="back" type="submit" class="btn btn-default " role="button"><%= link_to 'Back', root_path %></div>
+                <div id="New Rant" type="submit" class="btn btn-default " role="button"><%= link_to 'New Rant', new_rant_path %></div>
+              </div>
+</center></div>

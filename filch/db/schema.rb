@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2019_07_07_062447) do
   create_table "geofences", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.decimal "latitude"
+    t.decimal "latitud"
     t.decimal "longitud"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -43,9 +43,10 @@ class RantsController < ApplicationController
   # PATCH/PUT /rants/1
   # PATCH/PUT /rants/1.json
   def update
+    @rant= Rant.where
     respond_to do |format|
       if @rant.update(rant_params)
-        format.html { redirect_to @rant, notice: 'Rant was successfully updated.' }
+        format.html { redirect_to @root, notice: 'Rant was successfully updated.' }
         format.json { render :show, status: :ok, location: @rant }
       else
         format.html { render :edit }
