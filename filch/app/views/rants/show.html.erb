@@ -12,7 +12,9 @@
 <p>
   <%= @rant.title %>
 </p>
-
+<"%= if @user.image.attachment? %">
+    <"%= image_tag @rant.image.first %">
+  <"% end %">
 <p>
   <strong>Description:</strong>
   <%= @rant.description %>

@@ -16,7 +16,7 @@
         <%= rant_form.text_field :user_id, value:current_user.id, type:"hidden" %>
         <%= rant_form.text_field :title, class:"form-control", placeholder:"Enter title", required: true %>
         <%= rant_form.text_area :description, class:"form-control", placeholder:"Enter Description...", required: true %>
-        <%= rant_form.file_field :image %><br>
+        <%= rant_form.file_field :images %><br>
         <%= rant_form.check_box :visibility %><br>
         <%= rant_form.submit value:"Create" , class:"btn btn-default" %>
       <% end %></center>

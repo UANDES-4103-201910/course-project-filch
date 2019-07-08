@@ -6,8 +6,9 @@
   <p>
     <%= @user.lastname %>
   </p>
-
-
+  <"%= if @user.image.attachment? %">
+    <"%= image_tag @user.image.variant(resize: '50x50') %">
+  <"% end %">
   <p>
     <strong>Role:</strong>
     <%= @user.role %>
