@@ -1,40 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron"><center>
+  <p>
+    <%= @user.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Lastname:</strong>
-  <%= @user.lastname %>
-</p>
+  <p>
+    <%= @user.lastname %>
+  </p>
 
 
-<p>
-  <strong>Role:</strong>
-  <%= @user.role %>
-</p>
+  <p>
+    <strong>Role:</strong>
+    <%= @user.role %>
+  </p>
 
-<p>
-  <strong>Uid:</strong>
-  <%= @user.uid %>
-</p>
 
-<p>
-  <strong>Provider:</strong>
-  <%= @user.provider %>
-</p>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @user.sex %>
-</p>
+  <p>
+    <strong>Sex:</strong>
+    <%= @user.sex %>
+  </p>
 
-<p>
-  <strong>Biography:</strong>
-  <%= @user.biography %>
-</p>
+  <p>
+    <strong>Biography:</strong>
+    <%= @user.biography %>
+  </p>
+  <div class="btn-group btn-group-lg">
+    <div id="edit" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Edit', edit_user_path(@user)%></div>
+    <div id="back" type="submit" class="btn btn-default btn-lg" role="button"><%= link_to 'Back', users_path %></div>
+  </div>
+</center></div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

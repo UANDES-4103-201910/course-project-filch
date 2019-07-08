@@ -1,62 +1,55 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<center>
+  <%= form_with(model: user, local: true) do |form| %>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :lastname %>
+      <%= form.text_field :lastname, class:"form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :geofence_id %>
+      <%= form.text_field :geofence_id %>
+    </div>
+
+    <div class="field">
+      <%= form.label :role %>
+      <%= form.text_field :role, class:"form-control" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image%>
+      <%= form.file_field :image %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :sex %>
+      <%= form.text_field :sex , class:"form-control"%>
+    </div>
+
+    <div class="field">
+      <%= form.label :biography %>
+      <%= form.text_area :biography, class:"form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
+</center>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :geofence_id %>
-    <%= form.text_field :geofence_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :role %>
-    <%= form.text_field :role %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image%>
-    <%= form.file_field :image %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :uid %>
-    <%= form.text_field :uid %>
-  </div>
-
-  <div class="field">
-    <%= form.label :provider %>
-    <%= form.text_field :provider %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sex %>
-    <%= form.text_field :sex %>
-  </div>
-
-  <div class="field">
-    <%= form.label :biography %>
-    <%= form.text_area :biography %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

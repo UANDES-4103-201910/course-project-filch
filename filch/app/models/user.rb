@@ -54,17 +54,20 @@ class User < ApplicationRecord
     end
   end
 
-  def is_super_admin
-    admin = Admin.where(user_id: id)
-    if admin.count == 0
-      false
-    elsif admin.count >= 1
-      is_super = admin.first.super_admin
+  def is_admin
+    if user.role == "admin" || user.role == "Admin" 
+      return true
+    else
+      return false
     end
   end
 
-  def get_admin
-    admin = Admin.where(user_id: id).first
+  def is_super_admin
+    if user.role == "superadmin" || user.role == "superAdmin" ||user.role == "Superadmin" || user.role == "SuperAdmin" 
+      return true
+    else
+      return false
+    end
   end
 
   def is_in_blacklist
